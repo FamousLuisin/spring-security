@@ -19,7 +19,7 @@ public class User {
     @Column(unique = true)
     private String username;
 
-    private String passowrd;
+    private String password;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
@@ -45,12 +45,12 @@ public class User {
         this.username = username;
     }
 
-    public String getPassowrd() {
-        return passowrd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassowrd(String passowrd) {
-        this.passowrd = passowrd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Set<Role> getRoles() {
@@ -62,6 +62,6 @@ public class User {
     }
 
     public boolean isLoginCorrect(LoginRequest loginRequest, BCryptPasswordEncoder passwordEncoder){
-        return passwordEncoder.matches(loginRequest.password(), this.passowrd);
+        return passwordEncoder.matches(loginRequest.password(), this.password);
     }
 }

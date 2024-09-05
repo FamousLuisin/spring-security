@@ -42,7 +42,7 @@ public class UserController {
 
         User user = new User();
         user.setUsername(userDto.username());
-        user.setPassowrd(passwordEncoder.encode(userDto.password()));
+        user.setPassword(passwordEncoder.encode(userDto.password()));
         user.setRoles(Set.of(basicRole));
 
         userRepository.save(user);
